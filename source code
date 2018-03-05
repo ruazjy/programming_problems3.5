@@ -1,0 +1,41 @@
+#1.设计一个算法，计算n阶乘中尾部0的个数
+def func(n):
+  sum=0
+  while n>=5:
+    sum+=n/5
+    n=n/5
+  return sum
+  
+#2.合并两个排序数组(升序排列)
+def mergeSoreted(list_a,list_b):
+  len_a=len(list_a)
+  len_b=len(list_b)
+  x=0
+  y=0
+  res=[]
+  while x<len_a and y<len_b:
+    if list_a[x]<=list_b[y]:
+      res.append(list_a[x])
+      x+=1
+      continue
+    if list_a[x]>=list_b[y]:
+      res.append(list_b[y])
+      y+=1
+  res.extend(list_a[x:])
+  res.extend(list_b[y:])
+  return res
+  
+  
+#3.翻转一个字符串（这段代码在pycharm上运行的好好的，到网站上就是通不过）
+def rotateString(stri,offset):
+  a=list(stri)
+  x=len(a)
+  b=a[:(x-offset)]
+  b.reverse()
+  c=a[(x-offset):x]
+  b.extend(c)
+  b.reverse()
+  return b
+  
+
+  
